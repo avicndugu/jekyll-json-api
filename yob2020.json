@@ -1,1 +1,3 @@
-{{ site.data.yob2020 | sort: "count" | reverse | jsonify }}
+---
+---
+{{ site.data.newnames.yob2020 | sort: "count" | reverse | jsonify }}
