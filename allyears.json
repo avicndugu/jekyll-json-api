@@ -1,3 +1,3 @@
 ---
 ---
-{{ site.data.allfilenames |sort: "year" | reverse }}
+{{ site.data.allfilenames |sort: "year" | reverse | jsonify}}
