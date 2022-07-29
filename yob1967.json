@@ -1,6 +1,6 @@
 ---
 ---
-{% assign counter = 0 %}{% assign data = site.data.yob1967 | sort: "count" | reverse %}
+{% assign counter = 0 %}{% assign data = site.data.years.yob1967 | sort: "count" | reverse %}
 [{% for name in data limit:250 %}
-{% if counter < 249 %}{{ name | jsonify }},{% else %}{{ name | jsonify }}{% endif %}{% assign counter = counter | plus: 1 %}
+{% if counter < 249 %}{ "name": "{{ data[counter].name }}", "id": "1967id{{ counter | plus: 1 }}", "count": {{ data[counter].count }}, "favourite": {{ false }} },{% else %}{ "name": "{{ data[counter].name }}", "id": "1967id{{ counter | plus: 1 }}", "count": {{ data[counter].count }}, "favourite": {{ false }} }{% endif %}{% assign counter = counter | plus: 1 %}
 {% endfor %}]

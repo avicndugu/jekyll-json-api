@@ -1,6 +1,6 @@
 ---
 ---
-{% assign counter = 0 %}{% assign data = site.data.yob1880 | sort: "count" | reverse %}
-[{% for name in data limit:250 %}
-{% if counter < 249 %}{{ name | jsonify }},{% else %}{{ name | jsonify }}{% endif %}{% assign counter = counter | plus: 1 %}
-{% endfor %}]
+{% assign counter = 0 %}{% assign data = site.data.years.yob1880 | sort: "count" | reverse %}
+[
+  {% for name in data limit:25 %}{% if counter < 24 %} { "name": "{{ data[counter].name }}", "id": {{ count }}, "count": {{ data[counter].count }}, "favourite": {{ false }} },{% else %}{ "name": "{{ data[counter].name }}", "id": {{ count }}, "count": {{ data[counter].count }}, "favourite": {{ false }} }{% endif %}{% assign counter = counter | plus: 1 %}{% endfor %}
+]
