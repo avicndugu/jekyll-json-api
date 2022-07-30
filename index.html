@@ -3,12 +3,6 @@ layout: default
 title: Home
 ---
 
-{% assign counter = 0 %}{% assign data = site.data.yob1880 | sort: "count" | reverse %}
-{{ data }}
-[{% for name in data limit:25 %}
-{% if counter < 25 %}{{ name | jsonify }},{% else %}{{ name | jsonify }}{% endif %}{% assign counter = counter | plus: 1 %}
-{% endfor %}]
-
 <div class="posts">
 
   {% for post in paginator.posts %}
