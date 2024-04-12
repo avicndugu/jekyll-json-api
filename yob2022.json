@@ -1,0 +1,6 @@
+---
+---
+{% assign counter = 0 %}{% assign data = site.data.yob2022 | sort: "count" | reverse %}
+[{% for name in data limit:250 %}
+{% if counter < 249 %}{ "name": "{{ data[counter].name }}", "id": "2021id{{ counter | plus: 1 }}", "count": {{ data[counter].count }}, "favourite": {{ false }}, "gender": "{{data[counter].gender}}" },{% else %}{ "name": "{{ data[counter].name }}", "id": "2021id{{ counter | plus: 1 }}", "count": {{ data[counter].count }}, "favourite": {{ false }}, "gender": "{{data[counter].gender}}" }{% endif %}{% assign counter = counter | plus: 1 %}
+{% endfor %}]
